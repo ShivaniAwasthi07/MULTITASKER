@@ -1,0 +1,38 @@
+package com.example.shiva.multitasker;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class Second extends AppCompatActivity {
+    Button b1,b2;
+    EditText e1;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+        b1=(Button)findViewById(R.id.button3);
+        e1=(EditText)findViewById(R.id.editText);
+        b1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view)
+            {
+                String s1=e1.getText().toString();
+                Toast.makeText(Second.this, s1, Toast.LENGTH_SHORT).show();
+            }
+        });
+        b2=(Button) findViewById(R.id.button4);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(Second.this,Third.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+    }
+}
